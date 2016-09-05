@@ -1,19 +1,19 @@
-import { createStore, applyMiddleWare } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import promise from 'redux-promise';
 import createLogger from 'redux-logger';
 import rootReducer from '../reducers';
 
 export default function configureStore(initialState) {
-  const middleware = [promise];
 
-  if (process.env.NODE_ENV !== 'production') {
-    middleware.push(createLogger());
+  const middlewares = [promise];
+  if (!process.env.NODE_ENV || process.env.NODE_ENV !== 'production') {
+    middlewares.push(createLogger());
   };
 
   const store = createStore(
       rootReducer,
       initialState,
-      applyMiddleWare(...middleware)
+      applyMiddleware(...middlewares)
   );
 
   if (module.hot) {
@@ -21,7 +21,6 @@ export default function configureStore(initialState) {
       const nextReducer = require('../reducers').default;
       store.replaceReducer(nextReducer);
     });
-    store.replaceReducer(nextReducer);
   }
 
   return store;

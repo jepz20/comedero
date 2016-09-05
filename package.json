@@ -8,7 +8,8 @@
     "dev": "webpack-dev-server --content-base dist/",
     "serve": "NODE_ENV=production concurrently \"webpack --progress --watch\" \"node server\"",
     "start": "node server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --compilers js:babel-register --recursive",
+    "test:watch": "npm test -- --watch"
   },
   "repository": {
     "type": "git",
@@ -27,10 +28,14 @@
   },
   "homepage": "https://github.com/jepz20/comedero#readme",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "express": "^4.13.4",
+    "jquery": "^3.1.0",
+    "material-design-icons": "^3.0.1",
     "node-uuid": "^1.4.7",
     "normalize.css": "^4.2.0",
     "react": "^15.2.0",
+    "react-bootstrap": "^0.30.3",
     "react-dom": "^15.2.0",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
@@ -57,4 +62,3 @@
     "webpack": "^1.13.1"
   }
 }
-

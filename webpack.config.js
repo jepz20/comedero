@@ -15,6 +15,7 @@ config = {
     app: './index.js',
     vendor: Object.keys(pkg.dependencies),
   },
+  devtools: 'evals',
   output: {
     path: PATHS.build,
     filename: '[name].[chunkhash].js',
