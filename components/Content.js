@@ -18,7 +18,7 @@ class Content extends React.Component {
     return (
       <section className="content">
         <div className={'card__container ' + visibilityMenu}>
-          <button onClick={toggleMenu}>Show Menu</button>
+          <button onClick={toggleMenu} className="content__filter__btn md-700">Filter</button>
           <RestaurantCardsContainer />
         </div>
       </section>
