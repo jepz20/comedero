@@ -1,11 +1,20 @@
 Project Submission
 
-You will develop a restaurant review application with a focus on accessibility. You will remotely access JSON files containing restaurant information (including name, a photograph, address, cuisine type and operating hours) as well as JSON files containing review information for each restaurant (name of reviewer, date of review, 5-star rating and comments). The reviews application must include an application header, and a menu providing multiple ways to filter the restaurants (by cuisine, by location, etc). When viewing a specific restaurant, current reviews must be displayed along with a form for the user to submit their own review.
+You will develop a restaurant review application with a focus on accessibility.
+You will remotely access JSON files containing restaurant information (including name,
+a photograph, address, cuisine type and operating hours) as well as JSON files containing review information
+for each restaurant (name of reviewer, date of review, 5-star rating and comments).
+The reviews application must include an application header, and a menu providing multiple ways to filter
+the restaurants (by cuisine, by location, etc). When viewing a specific restaurant, current reviews must be
+displayed along with a form for the user to submit their own review.
 
 Supporting Course: Web Accessibility coming May 2016.
 
 Evaluation
-Your project will be evaluated by a Udacity reviewer according to this rubric(https://review.udacity.com/?_ga=1.254373896.1211131238.1460004041#!/projects/5512480150/rubric). Be sure to review it thoroughly before you submit. All criteria must "meet specifications" in order to pass.
+Your project will be evaluated by a Udacity reviewer according to this
+rubric(https://review.udacity.com/?_ga=1.254373896.1211131238.1460004041#!/projects/5512480150/rubric).
+Be sure to review it thoroughly before you submit. All criteria must "meet specifications" in order to pass.
 
 Submission
-Once you've completed your project, return to your Udacity Homepage and use the Submit Project button to submit a GitHub repository or .zip archive.
+Once you've completed your project, return to your Udacity Homepage and use the Submit Project button to
+submit a GitHub repository or .zip archive.

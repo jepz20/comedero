@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production webpack --progress",
-    "dev": "webpack-dev-server --content-base dist/",
+    "dev": "webpack-dev-server --content-base dist/ --host 0.0.0.0",
     "serve": "NODE_ENV=production concurrently \"webpack --progress --watch\" \"node server\"",
     "start": "node server",
     "test": "mocha --compilers js:babel-register --recursive",
