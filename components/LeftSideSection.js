@@ -17,7 +17,6 @@ class LeftSideSection extends React.Component {
 
     return (
       <section className={'left__side ' + visibilityMenu}>
-        Anything Else
         <CheckboxFilter></CheckboxFilter>
       </section>
     );

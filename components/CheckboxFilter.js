@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux'
 import * as actions from '../actions';
 import Checkbox from 'react-bootstrap/lib/Checkbox'
+import FormGroup from 'react-bootstrap/lib/FormGroup'
+import ControlLabel from 'react-bootstrap/lib/ControlLabel'
 
 class CheckboxFilter extends React.Component {
   constructor(props) {
@@ -9,7 +11,12 @@ class CheckboxFilter extends React.Component {
   }
   render() {
     return (
-        <Checkbox>Texto</Checkbox>
+        <FormGroup>
+          <ControlLabel>Cousine</ControlLabel>
+          <Checkbox>Honduran</Checkbox>
+          <Checkbox>Baleada</Checkbox>
+          <Checkbox>Italian</Checkbox>
+        </FormGroup>
     )
   }
 };

@@ -1,10 +1,10 @@
-const defaultState = {
-  restaurants: [],
-};
+const defaultState = [];
 
 export default function restaurants(state=defaultState, action) {
   switch (action.type) {
-    case 'TBD':
+    case 'RECIEVE_RESTAURANTS':
+      console.log('RESTAURAAANTS', action);
+      return action.response;
     default:
       return state;
   }
