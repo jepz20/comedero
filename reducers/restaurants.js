@@ -1,6 +1,4 @@
-const defaultState = [];
-
-export default function restaurants(state=defaultState, action) {
+export default function restaurants(state=[], action) {
   switch (action.type) {
     case 'RECIEVE_RESTAURANTS':
       console.log('RESTAURAAANTS', action);

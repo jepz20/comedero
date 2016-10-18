@@ -11,12 +11,14 @@ class RestaurantCardsContainer extends React.Component {
   constructor(props) {
     super(props);
   }
+
   componentDidMount() {
     const { fetchRestaurants } = this.props;
     console.log(this.props);
     console.log(this.state);
     fetchRestaurants();
   }
+
   render() {
     return (
        <div>

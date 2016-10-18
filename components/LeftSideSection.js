@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CheckboxFilter from './CheckboxFilter'
+import CheckboxFilter from './CheckboxFilter';
 import * as actions from '../actions';
 import React from 'react';
 

@@ -6,11 +6,11 @@ export const fetchRestaurants = () => (
     restaurantsRef.on('value', snapshot=> {
       dispatch({
         type: 'RECIEVE_RESTAURANTS',
-        response: snapshot.val()
+        response: snapshot.val(),
       });
     });
   }
-)
+);
 
 export const receiveRestaurants = response => ({
   type: 'RECIEVE_RESTAURANTS',
@@ -20,4 +20,9 @@ export const receiveRestaurants = response => ({
 export const toggleMenu = visibilityMenu => ({
   type: 'TOGGLE_MENU',
   visibilityMenu,
+});
+
+export const applySearch = text => ({
+  type: 'APPLY_SEARCH',
+  text,
 });
