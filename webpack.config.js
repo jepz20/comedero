@@ -15,7 +15,7 @@ config = {
     app: './index.js',
     vendor: Object.keys(pkg.dependencies),
   },
-  devtools: 'evals',
+  devtools: 'inline-source-map',
   output: {
     path: PATHS.build,
     filename: '[name].[chunkhash].js',
@@ -50,7 +50,7 @@ config = {
       { from: 'images', to: 'images' },
     ]),
     new SWPrecacheWebpackPlugin({
-      cacheId: 'pubj',
+      cacheId: 'comedero',
       filename: 'service-worker.js',
       runtimeCaching: [
         {
@@ -99,9 +99,9 @@ if (process.env.NODE_ENV === 'production') {
       comments: false,
     },
   }));
-} else {
-  config.devtools = 'evals';
-};
+} /*else {
+//   config.devtools = 'evals';
+// };*/
 
 excludedPackages = [
   'express',

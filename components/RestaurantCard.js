@@ -41,7 +41,10 @@ class RestaurantCard extends React.Component {
             </div>
 
           </div>
-          <div>{restaurant.address.streetAddress}, {restaurant.address.city}, {restaurant.address.state}</div>
+          <div>{restaurant.address.streetAddress},
+            {restaurant.address.city},
+            {restaurant.address.state}
+          </div>
           <div className="card__content__feature-menu">
             <h4>Feature Menu: </h4>
             <ul>
@@ -64,7 +67,7 @@ class RestaurantCard extends React.Component {
           </div>
         </div>
         <div className="card__content__category__container">
-          { restaurant.categories.map( category => (
+          { restaurant.categories.map(category => (
               <div key={category} className="card__content__category">{category}</div>
           ))
 

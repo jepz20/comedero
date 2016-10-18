@@ -1,19 +1,20 @@
 import { firebaseDb } from '../utils/firebase';
 
 const restaurantsRef =  firebaseDb.ref('/');
-export const fetchRestaurants = () => (
+export const fetchRestaurants = (searchFilter='') => (
   dispatch => {
     restaurantsRef.on('value', snapshot=> {
       dispatch({
-        type: 'RECIEVE_RESTAURANTS',
+        type: 'RECEIVE_RESTAURANTS',
         response: snapshot.val(),
+        searchFilter,
       });
     });
   }
 );
 
 export const receiveRestaurants = response => ({
-  type: 'RECIEVE_RESTAURANTS',
+  type: 'RECEIVE_RESTAURANTS',
   response,
 });
 

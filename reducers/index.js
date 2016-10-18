@@ -6,5 +6,4 @@ import searchFilter from './searchFilter';
 export default combineReducers({
   visibilityMenu,
   restaurants,
-  searchFilter,
 });

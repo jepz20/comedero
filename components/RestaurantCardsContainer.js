@@ -14,15 +14,15 @@ class RestaurantCardsContainer extends React.Component {
 
   componentDidMount() {
     const { fetchRestaurants } = this.props;
-    console.log(this.props);
-    console.log(this.state);
+
     fetchRestaurants();
   }
 
   render() {
+    const { restaurants } = this.props;
     return (
        <div>
-       { this.props.restaurants.map(r => (
+       { restaurants.items.map(r => (
            <div key={ r.name }>
             <RestaurantCard restaurant={r}/>
            </div>

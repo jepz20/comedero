@@ -32,8 +32,8 @@ class HeaderSection extends React.Component {
   }
 
   doSearch() {
-    const { applySearch } = this.props;
-    applySearch(this.state.searchValue);
+    const { fetchRestaurants } = this.props;
+    fetchRestaurants(this.state.searchValue);
   }
 
   searchOnEnter(evt) {
