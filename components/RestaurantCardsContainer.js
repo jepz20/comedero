@@ -14,16 +14,21 @@ class RestaurantCardsContainer extends React.Component {
 
   componentDidMount() {
     const { fetchRestaurants } = this.props;
-
     fetchRestaurants();
   }
 
   render() {
     const { restaurants } = this.props;
+    if (restaurants.items.length === 0 && !restaurants.loading) {
+      return (
+        <div className="message_center">No Results Found :(</div>
+      );
+    }
+
     return (
        <div>
        { restaurants.items.map(r => (
-           <div key={ r.name }>
+           <div key={r.name}>
             <RestaurantCard restaurant={r}/>
            </div>
          ))

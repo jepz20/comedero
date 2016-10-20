@@ -1,13 +1,12 @@
 import { firebaseDb } from '../utils/firebase';
 
 const restaurantsRef =  firebaseDb.ref('/');
-export const fetchRestaurants = (searchFilter='') => (
+export const fetchRestaurants = () => (
   dispatch => {
     restaurantsRef.on('value', snapshot=> {
       dispatch({
         type: 'RECEIVE_RESTAURANTS',
         response: snapshot.val(),
-        searchFilter,
       });
     });
   }
@@ -23,7 +22,19 @@ export const toggleMenu = visibilityMenu => ({
   visibilityMenu,
 });
 
-export const applySearch = text => ({
+export const addFilter = (property, value) => ({
+  type: 'ADD_FILTER',
+  property,
+  value,
+});
+
+export const removeFilter = (property, value) => ({
+  type: 'REMOVE_FILTER',
+  property,
+  value,
+});
+
+export const applySearch = searchFilter => ({
   type: 'APPLY_SEARCH',
-  text,
+  searchFilter,
 });

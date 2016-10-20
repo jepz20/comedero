@@ -11,8 +11,14 @@
   width: auto;
 }
 
+.message_center {
+  font-size: 3em;
+  color: #0E7A2E;
+
+}
 /* left side menu*/
 .left__side {
+  padding-left: 10px;
   position: absolute;
   width: 200px;
   height: auto;
@@ -156,6 +162,10 @@
   font-size: 0.9em;
 }
 
+.content__filter__btn {
+  margin-bottom: 5px;
+}
+
 /*material design icons*/
 .material-icons.md-12 {
   font-size: 12px;
@@ -168,12 +178,18 @@
 }
 
 @media only screen and (min-width: 700px) {
+  .card__container.show__menu {
+    left: auto;
+  }
+
   .card__content__feature-menu li {
     display: block;
   }
+
   .card__content__category {
     display: inherit;
   }
+
   .left__side {
     width: 200px;
     left: auto;

@@ -14,10 +14,20 @@ class LeftSideSection extends React.Component {
 
   render() {
     const { visibilityMenu } = this.props;
+    let cousineFilter = {};
+    cousineFilter.title = 'Cousine';
+    cousineFilter.items = ['Tipica', 'Catracho', 'Capitalino'];
+    cousineFilter.property = 'categories';
+
+    let cityFilter = {};
+    cityFilter.title = 'City';
+    cityFilter.items = ['Tegucigalpa', 'Egkomi', 'Ceiba'];
+    cityFilter.property = 'address.city';
 
     return (
       <section className={'left__side ' + visibilityMenu}>
-        <CheckboxFilter></CheckboxFilter>
+        <CheckboxFilter data={cousineFilter}></CheckboxFilter>
+        <CheckboxFilter data={cityFilter}></CheckboxFilter>
       </section>
     );
   }

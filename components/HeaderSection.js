@@ -5,13 +5,13 @@ import NavItem from 'react-bootstrap/lib/NavItem';
 import NavDropdown from 'react-bootstrap/lib/NavDropdown';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import FormControl from 'react-bootstrap/lib/FormControl';
+import InputGroup from 'react-bootstrap/lib/InputGroup';
 import Button from 'react-bootstrap/lib/Button';
 import MenuItem from 'react-bootstrap/lib/MenuItem';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 const mapStateToProps = state => ({
-  searchFilter: state.searchFilter,
 });
 
 class HeaderSection extends React.Component {
@@ -22,7 +22,6 @@ class HeaderSection extends React.Component {
     this.searchOnEnter = this.searchOnEnter.bind(this);
     this.state = {};
     this.state.searchValue = '';
-    console.log(this.state);
   }
 
   updateInputValue(evt) {
@@ -32,8 +31,9 @@ class HeaderSection extends React.Component {
   }
 
   doSearch() {
-    const { fetchRestaurants } = this.props;
-    fetchRestaurants(this.state.searchValue);
+    const { applySearch, fetchRestaurants } = this.props;
+    applySearch(this.state.searchValue);
+    fetchRestaurants();
   }
 
   searchOnEnter(evt) {
@@ -52,18 +52,23 @@ class HeaderSection extends React.Component {
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
-          <Navbar.Form pullLeft>
+          <Navbar.Form pullLeft >
           <FormGroup>
-          <FormControl
+          <InputGroup>
+            <FormControl
             type="text"
             placeholder="Search"
             value={this.state.searchValue}
             onChange= {this.updateInputValue}
             onKeyPress={this.searchOnEnter}
-          />
-          </FormGroup>
+            />
+            <InputGroup.Button>
+              <Button type="submit" onClick={this.doSearch} bsStyle="primary">Search</Button>
+            </InputGroup.Button>
+          </InputGroup>
           {' '}
-          <Button type="submit" onClick={this.doSearch}>Search</Button>
+
+          </FormGroup>
           </Navbar.Form>
           <Navbar.Collapse>
             <Nav pullRight>

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import RestaurantCardsContainer from './RestaurantCardsContainer';
 import * as actions from '../actions';
 import LeftSideSection from './LeftSideSection';
+import Button from 'react-bootstrap/lib/Button';
 
 const mapStateToProps = (state) => ({
   visibilityMenu: state.visibilityMenu,
@@ -20,7 +21,9 @@ class Content extends React.Component {
       <section className="content">
         <LeftSideSection />
         <div className={'card__container '  + visibilityMenu}>
-          <button onClick={toggleMenu} className="content__filter__btn md-700">Filter</button>
+          <div className="content__filter__btn md-700">
+            <Button onClick={toggleMenu} bsStyle="primary">Filter</Button>
+          </div>          
           <RestaurantCardsContainer />
         </div>
       </section>
