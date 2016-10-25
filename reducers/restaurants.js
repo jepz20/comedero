@@ -8,6 +8,16 @@ const defaultState = {
   loading: true,
 };
 
+const getKeyValue = (key, item) => {
+  let value = item;
+  let allKeys = key.split('.');
+  allKeys.forEach(k => {
+    value = value[k];
+  });
+
+  return value;
+};
+
 export default function restaurants(state=defaultState, action) {
   let items;
   let filters;
@@ -25,11 +35,7 @@ export default function restaurants(state=defaultState, action) {
         items  = items.reduce((allItems, currentItem) => {
           let isMatch = false;
           for (let key in state.filters) {
-            let match = currentItem;
-            let allKeys = key.split('.');
-            allKeys.forEach(k => {
-              match = match[k];
-            });
+            let match = getKeyValue(key, currentItem);
             if (match instanceof Array) {
               isMatch = state.filters[key].some(filter => match.indexOf(filter) > -1);
             } else {

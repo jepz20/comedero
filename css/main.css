@@ -11,6 +11,10 @@
   width: auto;
 }
 
+.reallySmall {
+  width: 10px;
+  display: inline;
+}
 .message_center {
   font-size: 3em;
   color: #0E7A2E;

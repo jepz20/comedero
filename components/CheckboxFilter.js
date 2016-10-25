@@ -11,18 +11,19 @@ const mapStateToProps = (state) => ({
 class CheckboxFilter extends React.Component {
   constructor(props) {
     super(props);
+    this.filterType = 'checkbox';
   }
 
   render() {
     const { data, addFilter, removeFilter, fetchRestaurants, toggleMenu } = this.props;
-    const toggleFilter = evt => {
+    const applyFilter = evt => {
       let index = evt.target.value;
       let value = data.items[index];
       let property = data.property;
       if (evt.target.checked) {
-        addFilter(property, value);
+        addFilter(property, value, this.filterType);
       } else {
-        removeFilter(property, value);
+        removeFilter(property, value, this.filterType);
       };
 
       toggleMenu();
@@ -34,7 +35,7 @@ class CheckboxFilter extends React.Component {
           <ControlLabel>{data.title}</ControlLabel>
           {
             data.items.map((item, index) => (
-              <Checkbox key={index} value={index} onChange={ toggleFilter }>{item}</Checkbox>
+              <Checkbox key={index} value={index} onChange={ applyFilter }>{item}</Checkbox>
             ))
           }
         </FormGroup>

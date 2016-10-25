@@ -22,16 +22,18 @@ export const toggleMenu = visibilityMenu => ({
   visibilityMenu,
 });
 
-export const addFilter = (property, value) => ({
+export const addFilter = (property, value, filterType) => ({
   type: 'ADD_FILTER',
   property,
   value,
+  filterType,
 });
 
-export const removeFilter = (property, value) => ({
+export const removeFilter = (property, value, filterType) => ({
   type: 'REMOVE_FILTER',
   property,
   value,
+  filterType,
 });
 
 export const applySearch = searchFilter => ({
