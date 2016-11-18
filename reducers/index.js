@@ -4,4 +4,5 @@ import visibilityMenu from './visibilityMenu';
 
 export default combineReducers({
   visibilityMenu,
+  restaurants,
 });

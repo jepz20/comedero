@@ -4,16 +4,16 @@ import createLogger from 'redux-logger';
 import rootReducer from '../reducers';
 
 export default function configureStore(initialState) {
-
+  const logger = createLogger();
   const middlewares = [promise];
   if (!process.env.NODE_ENV || process.env.NODE_ENV !== 'production') {
-    middlewares.push(createLogger());
+    middlewares.push(logger);
   };
 
+  console.log(middlewares);
   const store = createStore(
-      rootReducer,
-      initialState,
-      applyMiddleware(...middlewares)
+    rootReducer,
+    applyMiddleware(...middlewares)
   );
 
   if (module.hot) {

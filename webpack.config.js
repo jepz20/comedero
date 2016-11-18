@@ -10,12 +10,12 @@ const PATHS = {
   app: './index.js',
   build: path.join(__dirname, 'dist'),
 };
+
 config = {
   entry: {
     app: './index.js',
     vendor: Object.keys(pkg.dependencies),
   },
-  devtools: 'evals',
   output: {
     path: PATHS.build,
     filename: '[name].[chunkhash].js',
@@ -24,6 +24,7 @@ config = {
     inline: true,
     port: 2203,
   },
+  devtools: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -46,11 +47,8 @@ config = {
     new CopyWebpackPlugin([
       { from: 'data', to: 'data' },
     ]),
-    new CopyWebpackPlugin([
-      { from: 'images', to: 'images' },
-    ]),
     new SWPrecacheWebpackPlugin({
-      cacheId: 'pubj',
+      cacheId: 'comedero',
       filename: 'service-worker.js',
       runtimeCaching: [
         {
@@ -78,9 +76,8 @@ config = {
     ],
   },
 };
-if (process.env.NODE_ENV === 'production') {
-  config.plugins.push();
 
+if (process.env.NODE_ENV === 'production') {
   config.plugins.push(new webpack.optimize.UglifyJsPlugin({
     compress: {
       sequences: true,
@@ -99,8 +96,6 @@ if (process.env.NODE_ENV === 'production') {
       comments: false,
     },
   }));
-} else {
-  config.devtools = 'evals';
 };
 
 excludedPackages = [

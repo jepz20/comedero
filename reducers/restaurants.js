@@ -1,10 +1,7 @@
-const defaultState = {
-  restaurants: [],
-};
-
-export default function restaurants(state=defaultState, action) {
+export default function restaurants(state=[], action) {
   switch (action.type) {
-    case 'TBD':
+    case 'SET_RESTAURANTS':
+      return action.restaurants;
     default:
       return state;
   }
