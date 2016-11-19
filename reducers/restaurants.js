@@ -1,5 +1,5 @@
 import * as actions from '../actions';
-import { contains } from 'lodash';
+import { contains, difference } from 'lodash';
 
 const defaultState = {
   items: [],
@@ -50,19 +50,26 @@ export default function restaurants(state=defaultState, action) {
         ));
       };
 
+      let unMatchItems = [];
       if (Object.keys(state.filters).length > 0) {
         items  = items.reduce((allItems, currentItem) => {
           let isMatch = false;
           for (let key in state.filters) {
             if (key.indexOf(',') > -1) {
-              isMatch = checkMatchRange(state, key, currentItem)
+              isMatch = checkMatchRange(state, key, currentItem);
             } else {
               isMatch = checkMatch(state, key, currentItem);
             }
 
+            let index = allItems.indexOf(currentItem);
             if (isMatch) {
-              allItems.push(currentItem);
-              break;
+              if (index === -1) {
+                allItems.push(currentItem);
+              }
+            } else {
+              if (index > -1) {
+                allItems.splice(index, 1);
+              }
             };
           };
 
