@@ -11,8 +11,12 @@
   width: auto;
 }
 
-.reallySmall {
-  width: 10px;
+.form-control-small {
+  width: 50px!important;
+  display: inline!important;
+}
+
+.form-group-inline {
   display: inline;
 }
 .message_center {

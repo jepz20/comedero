@@ -20,34 +20,49 @@ class RangeFilter extends React.Component {
   }
 
   render() {
-    const { data, addFilter } = this.props;
+    const { data, addFilter, fetchRestaurants, toggleMenu, removeFilter } = this.props;
     const applyFilter = () => {
-      addFilter(data.property, [this.state.minVal, this.state.maxVal], this.filterType);
+      if (this.state.minVal.length > 0 &&
+        this.state.maxVal.length > 0
+      ) {
+        addFilter(data.property, [this.state.minVal, this.state.maxVal], this.filterType);
+      } else {
+        removeFilter(data.property, [this.state.minVal, this.state.maxVal], this.filterType);
+      }
+
+      toggleMenu();
+      fetchRestaurants();
     };
 
     return (
       <div>
         <span>{data.title}</span>
         <Form inline>
-          <FormGroup bsSize="small">
-            <ControlLabel>L.</ControlLabel>
+          <FormGroup bsStyle="inline">
+            <ControlLabel>$ </ControlLabel>
+            {' '}
             <FormControl
               type="text"
+              bsStyle="small"
               value={this.state.minVal}
               onChange={e => {this.setState({ minVal: e.target.value });}}
 
             />
           </FormGroup>
-          <FormGroup bsClass="reallySmall">
-            <ControlLabel>L.</ControlLabel>
+          {' to '}
+          <FormGroup bsStyle="inline">
+            <ControlLabel>$ </ControlLabel>
+            {' '}
             <FormControl
               type="text"
+              bsStyle="small"
               value={this.state.maxVal}
               onChange={e => {this.setState({ maxVal: e.target.value });}}
 
             />
           </FormGroup>
-          <Button bsSize="small" onClick={applyFilter}> >> </Button>
+          {' '}
+          <Button onClick={applyFilter}> >> </Button>
         </Form>
       </div>
     );

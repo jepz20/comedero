@@ -18,6 +18,25 @@ const getKeyValue = (key, item) => {
   return value;
 };
 
+const checkMatch = (state, key, item) => {
+  let match = getKeyValue(key, item);
+  if (match instanceof Array) {
+    return state.filters[key].some(filter => match.indexOf(filter) > -1);
+  } else {
+    return state.filters[key].indexOf(match) > -1;
+  };
+};
+
+const checkMatchRange = (state, key, item) => {
+  let keys = key.split(',');
+  let matchLow = getKeyValue(keys[0], item);
+  let matchHigh = getKeyValue(keys[1], item);
+  console.log(matchLow, matchHigh);
+  console.log(state.filters[key][0][0], state.filters[key][0][1]);
+  return state.filters[key][0][0] >= matchLow &&
+    state.filters[key][0][1] <= matchHigh;
+};
+
 export default function restaurants(state=defaultState, action) {
   let items;
   let filters;
@@ -35,12 +54,11 @@ export default function restaurants(state=defaultState, action) {
         items  = items.reduce((allItems, currentItem) => {
           let isMatch = false;
           for (let key in state.filters) {
-            let match = getKeyValue(key, currentItem);
-            if (match instanceof Array) {
-              isMatch = state.filters[key].some(filter => match.indexOf(filter) > -1);
+            if (key.indexOf(',') > -1) {
+              isMatch = checkMatchRange(state, key, currentItem)
             } else {
-              isMatch = state.filters[key].indexOf(match) > -1;
-            };
+              isMatch = checkMatch(state, key, currentItem);
+            }
 
             if (isMatch) {
               allItems.push(currentItem);
@@ -56,7 +74,12 @@ export default function restaurants(state=defaultState, action) {
     case 'ADD_FILTER':
       filters = { ...state.filters };
       if (action.property in filters) {
-        filters[action.property].push(action.value);
+        if (action.filterType === 'range') {
+          filters[action.property] = [action.value];
+        } else {
+          filters[action.property].push(action.value);
+        }
+
       } else {
         filters[action.property] = [action.value];
       };
@@ -67,10 +90,11 @@ export default function restaurants(state=defaultState, action) {
       if (action.property in filters) {
         let index = filters[action.property].indexOf(action.value);
         filters[action.property].splice(index, 1);
-      };
 
-      if (filters[action.property].length === 0) {
-        delete filters[action.property];
+        if (filters[action.property].length === 0 || action.filterType === 'range') {
+          delete filters[action.property];
+        };
+
       };
 
       return { ...state, filters };

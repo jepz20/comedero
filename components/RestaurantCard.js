@@ -37,7 +37,7 @@ class RestaurantCard extends React.Component {
               {`${restaurant.open_hours}`}
             </div>
             <div className="card__content__stats sm-500">
-              {`Average: $${restaurant.average_price}`}
+              {`Price Range: $${restaurant.low_price} - $${restaurant.high_price}`}
             </div>
 
           </div>
