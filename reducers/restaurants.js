@@ -1,5 +1,4 @@
 import * as actions from '../actions';
-import { contains, difference } from 'lodash';
 
 const defaultState = {
   items: [],
