@@ -40,3 +40,9 @@ export const applySearch = searchFilter => ({
   type: 'APPLY_SEARCH',
   searchFilter,
 });
+
+export const setMainView = (view, data) => ({
+  type: 'SET_MAIN_VIEW',
+  view,
+  data,
+});

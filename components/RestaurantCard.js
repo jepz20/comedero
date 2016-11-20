@@ -13,10 +13,14 @@ class RestaurantCard extends React.Component {
   }
 
   render() {
-    const { restaurant } = this.props;
+    const { restaurant, setMainView } = this.props;
+    const goToRestaurantLanding = (restaurant) => {
+      setMainView('restaurantLanding', restaurant);
+    };
+
     return (
       <Panel>
-      <div className="card">
+      <div className="card" onClick={ () => goToRestaurantLanding(restaurant) }>
         <img alt="" src={restaurant.image} className="card__hero"></img>
         <div className="card__content">
           <h1>{restaurant.name}</h1>

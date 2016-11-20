@@ -60,6 +60,7 @@
 
 .card {
   height: auto;
+  cursor: pointer;
   display: flex;
   flex-wrap: wrap;
   min-height: 200px;
@@ -167,6 +168,22 @@
 }
 
 .card__content__feature-menu__description {
+  font-size: 0.9em;
+}
+
+.landing__content__feature-menu__dish {
+  color: #0E7A2E;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.landing__content__feature-menu li {
+  list-style-type: none;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.landing__content__feature-menu__description {
   font-size: 0.9em;
 }
 
