@@ -12,6 +12,35 @@ export const fetchRestaurants = () => (
   }
 );
 
+export const fetchRestaurant = (id) => (
+  dispatch => {
+    const restaurantsRef =  firebaseDb.ref('/' + id);
+    restaurantsRef.on('value', snapshot=> {
+      dispatch({
+        type: 'RECEIVE_RESTAURANT',
+        response: snapshot.val(),
+      });
+    });
+  }
+);
+
+export const addComment = (id, comment) => (
+  dispatch => {
+    const restaurantsRef =  firebaseDb.ref('/' + id + '/comments');
+    restaurantsRef.push({
+      author: comment.author,
+      content: comment.content,
+    });
+  }
+);
+
+export const setCommentCount = (id, commentCount) => (
+  dispatch => {
+    const restaurantsRef =  firebaseDb.ref('/' + id + '/commentsCount');
+    restaurantsRef.set(commentCount);
+  }
+);
+
 export const receiveRestaurants = response => ({
   type: 'RECEIVE_RESTAURANTS',
   response,
