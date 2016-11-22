@@ -11,7 +11,7 @@ class CommentsContainer extends React.Component {
     if (!comments) {
       comments = {};
     };
-    
+
     return (
       <div>
         <CommentInput/>
@@ -20,6 +20,7 @@ class CommentsContainer extends React.Component {
             <div key={ key }>
               <div>{ comments[key].author }</div>
               <div>{ comments[key].content }</div>
+              <div>{ (new Date(comments[key].date)).toString() }</div>
             </div>
           ))
         }

@@ -30,14 +30,12 @@ export const addComment = (id, comment) => (
     restaurantsRef.push({
       author: comment.author,
       content: comment.content,
+      date: (new Date).getTime(),
     });
-  }
-);
-
-export const setCommentCount = (id, commentCount) => (
-  dispatch => {
-    const restaurantsRef =  firebaseDb.ref('/' + id + '/commentsCount');
-    restaurantsRef.set(commentCount);
+    const commentsCountRef =  firebaseDb.ref('/' + id + '/commentsCount');
+    commentsCountRef.transaction(function (currentValue) {
+      return (currentValue || 0) + 1;
+    });
   }
 );
 
