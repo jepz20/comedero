@@ -16,14 +16,13 @@ class Content extends React.Component {
 
   render() {
     const { toggleMenu, visibilityMenu } = this.props;
-
     return (
       <section className="content">
         <LeftSideSection />
         <div className={'card__container '  + visibilityMenu}>
           <div className="content__filter__btn md-700">
             <Button onClick={toggleMenu} bsStyle="primary">Filter</Button>
-          </div>          
+          </div>
           <RestaurantCardsContainer />
         </div>
       </section>

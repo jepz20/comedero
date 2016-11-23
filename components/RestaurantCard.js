@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Panel from 'react-bootstrap/lib/Panel';
+import { browserHistory } from 'react-router';
 
 const mapStateToProps = (state) => ({
   visibilityMenu: state.visibilityMenu,
@@ -15,7 +16,7 @@ class RestaurantCard extends React.Component {
   render() {
     const { restaurant, setMainView } = this.props;
     const goToRestaurantLanding = (restaurant) => {
-      setMainView('restaurantLanding', restaurant);
+      browserHistory.push('restaurant', '1');
     };
 
     return (

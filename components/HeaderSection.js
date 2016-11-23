@@ -10,6 +10,7 @@ import Button from 'react-bootstrap/lib/Button';
 import MenuItem from 'react-bootstrap/lib/MenuItem';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import { Link } from 'react-router';
 
 const mapStateToProps = state => ({
 });
@@ -49,7 +50,7 @@ class HeaderSection extends React.Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-            <a href="#">Comedero</a>
+            <Link to="/">Comedero</Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
