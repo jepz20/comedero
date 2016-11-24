@@ -5,12 +5,12 @@ Third Project for the Senior Web Developer Nanodegree at Udacity
 
 Comedero is restaurant review application
 
-PubJ is serve using a simple express server, and uses React and redux as frameworks.
+Comedero is serve using a simple express server, and uses React and redux as frameworks.
 
-PubJ is a progressive app, which can serve the content offline, with focus on accesibility.
+Comedero is a progressive, mobile firs, app, which can serve the content offline, with focus on accessibility.
 
 ##Live Version
-Live version of the page: https://pubj-jepz.herokuapp.com
+Live version of the page: https://comedero-jepz.herokuapp.com
 
 
 ##Installation

@@ -46,11 +46,15 @@ class RestaurantLanding extends React.Component {
               <h2>
                 Open Hours: <span> { mainView.data.open_hours} </span>
               </h2>
-              <h3> Average: <span>{ mainView.data.average_price}</span> </h3>
-              <h3> Low: <span>{ mainView.data.low_price}</span> </h3>
-              <h3> High: <span>{ mainView.data.high_price}</span> </h3>
+              <h2> Average: <span>{ mainView.data.average_price}</span> </h2>
+              <h2> Low: <span>{ mainView.data.low_price}</span> </h2>
+              <h2> High: <span>{ mainView.data.high_price}</span> </h2>
               <h2> Categories: </h2>
-              { mainView.data.categories.map((c, index) => <div key= { index }>{ c }</div>) }
+              { mainView.data.categories.map((c, index) =>
+                <div className="card__content__category" key= { index }>
+                  { c }
+                </div>)
+              }
               <h2>
                 Open Hours: { mainView.data.open_hours}
               </h2>

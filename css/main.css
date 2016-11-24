@@ -19,6 +19,8 @@
 .form-group-inline {
   display: inline;
 }
+
+
 .message_center {
   font-size: 3em;
   color: #0E7A2E;
@@ -89,24 +91,37 @@
 }
 
 .landing__content__main__thumbnail img {
-  height: 400px;
+  height: 300px;
   width: 100%;
 }
-.landing__content__main__title {
-  background-color: green;
+
+.landing__content__main__info__title {
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 2em;
 }
-.landing__content__main__rating {
-  background-color: blue;
+
+.landing__content__main__info__title h1{
+  font-size: 1.6em;
 }
-.landing__content__main__main-info {
-  background-color: yellow;
+
+.landing__content__main__info__main-info h2{
+  text-transform: capitalize;
+  font-size: 1em;
+  font-weight: bolder;
+  padding: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
-.landing__content__main__feature-menu {
-  background-color: magenta;
+
+.landing__content__main__info__main-info h2 span{
+  font-size: 1em;
+  font-weight:normal;
 }
+
 .landing__content__comments {
   height: auto;
-  background-color: cyan;
 }
 
 .card__hero {
@@ -242,9 +257,24 @@
   .sm-500{
     display: inherit;
   }
+
 }
 
 @media only screen and (min-width: 700px) {
+
+  .landing__content__main__info {
+    flex: 1;
+  }
+
+  .landing__content__main__thumbnail {
+    flex: 1;
+  }
+
+  .landing__content__main__thumbnail img {
+    height: 300px;
+    width: 400px;
+  }
+
   .card__container.show__menu {
     left: auto;
   }
