@@ -9,12 +9,6 @@ const mapStateToProps = (state) => ({
   mainView: state.mainView,
 });
 
-// <Provider store={ store }>
-//   <Router history={ browserHistory }>
-//     <Route path="/" component={ App } />
-//   </Router>
-// </Provider>,
-
 class MainSection extends React.Component {
   constructor(props) {
     super(props);
@@ -22,33 +16,10 @@ class MainSection extends React.Component {
 
   render() {
     return (
-      <Router history={ browserHistory }>
       <section className="main">
-          <Route path="/" component={ Content } />
-          <Route path="restaurant/:id" component={ RestaurantLanding } />
+        {this.props.children}
       </section>
-    </Router>
-    )
-    // const { mainView } = this.props;
-    // console.log(mainView);
-    // switch (mainView.view) {
-    //   case 'search':
-    //     return (
-    //       <section className="main">
-    //       <Content />
-    //       </section>
-    //     );
-    //   case 'restaurantLanding':
-    //     return (
-    //       <RestaurantLanding data={mainView.data}/>
-    //     );
-    //   default:
-    //     return (
-    //       <section className="main">
-    //       <Content />
-    //       </section>
-    //     );
-    // }
+    );
   }
 };
 MainSection = connect(mapStateToProps, actions)(MainSection);

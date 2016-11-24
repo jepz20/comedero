@@ -102,6 +102,9 @@ export default function restaurants(state=defaultState, action) {
       };
 
       return { ...state, filters };
+    case 'CLEAR_ALL_FILTERS':
+      return { ...state, filters: {} };
+      
     case 'APPLY_SEARCH':
       return { ...state, searchFilter: action.searchFilter };
     default:

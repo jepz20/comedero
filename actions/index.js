@@ -49,6 +49,10 @@ export const toggleMenu = visibilityMenu => ({
   visibilityMenu,
 });
 
+export const clearAllFilters = visibilityMenu => ({
+  type: 'CLEAR_ALL_FILTERS',
+});
+
 export const addFilter = (property, value, filterType) => ({
   type: 'ADD_FILTER',
   property,

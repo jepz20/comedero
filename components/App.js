@@ -2,11 +2,19 @@ import React from 'react';
 import MainSection from './MainSection';
 import HeaderSection from './HeaderSection';
 
-const App = () => (
-  <div>
-    <HeaderSection />
-    <MainSection />
-  </div>
-);
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        <HeaderSection />
+        {this.props.children}
+      </div>
+    );
+  }
+}
 
 export default App;

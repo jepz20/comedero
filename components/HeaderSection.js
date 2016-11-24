@@ -11,6 +11,7 @@ import MenuItem from 'react-bootstrap/lib/MenuItem';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { Link } from 'react-router';
+import { hashHistory } from 'react-router';
 
 const mapStateToProps = state => ({
 });
@@ -32,7 +33,9 @@ class HeaderSection extends React.Component {
   }
 
   doSearch() {
-    const { applySearch, fetchRestaurants, setMainView } = this.props;
+    const { applySearch, fetchRestaurants, setMainView, clearAllFilters } = this.props;
+
+    hashHistory.push('/');
     setMainView('main', {});
     applySearch(this.state.searchValue);
     fetchRestaurants();

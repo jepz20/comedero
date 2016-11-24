@@ -5,6 +5,7 @@ import CommentsContainer from './CommentsContainer.js';
 
 const mapStateToProps = (state) => ({
   mainView: state.mainView,
+  routing: state.routing,
 });
 
 class RestaurantLanding extends React.Component {
@@ -13,8 +14,10 @@ class RestaurantLanding extends React.Component {
   }
 
   componentDidMount() {
-    const { fetchRestaurant } = this.props;
-    fetchRestaurant(2);
+    const { fetchRestaurant, routing } = this.props;
+    let lastIndex = routing.locationBeforeTransitions.pathname.lastIndexOf('/');
+    let restaurantId = routing.locationBeforeTransitions.pathname.substring(lastIndex + 1);
+    fetchRestaurant(restaurantId);
   }
 
   render() {

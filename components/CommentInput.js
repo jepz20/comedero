@@ -53,7 +53,7 @@ class CommentInput extends React.Component {
         </label>
         <label>
           Content:
-          <input id="content" onChange={this.setContent}></input>
+          <textarea id="content" onChange={this.setContent}></textarea>
         </label>
         <Button onClick={ this.processComment } bsStyle="primary">Add Comment</Button>
       </div>

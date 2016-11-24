@@ -1,6 +1,6 @@
 // TODO Change for default search and data empty
 const defaultState = {
-  view: 'restaurantLanding',
+  view: 'main',
   data: {
     address: {},
     categories: [],
