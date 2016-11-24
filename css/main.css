@@ -122,6 +122,7 @@
 
 .landing__content__comments {
   height: auto;
+  background-color: cyan;
 }
 
 .card__hero {
