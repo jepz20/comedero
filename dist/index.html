@@ -10,11 +10,11 @@
   <body>
     <div id="root"></div>
     <script>
-      // if ('serviceWorker' in navigator) {
-      //   navigator.serviceWorker.register('/service-worker.js').then((r) => {
-      //     console.log('Service Worker Registered');
-      //   });
-      // }
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js').then((r) => {
+          console.log('Service Worker Registered');
+        });
+      }
     </script>
   <script type="text/javascript" src="manifest.180c00953a678abd7def.js"></script><script type="text/javascript" src="vendor.e10715ed3c3efb613e85.js"></script><script type="text/javascript" src="app.b8c316ebc2f0d3729ae0.js"></script></body>
 </html>

@@ -52,12 +52,6 @@ config = {
     new SWPrecacheWebpackPlugin({
       cacheId: 'comedero',
       filename: 'service-worker.js',
-      runtimeCaching: [
-        {
-          urlPattern: /data/,
-          handler: 'networkFirst',
-        },
-      ],
     }),
   ],
   module: {
