@@ -25,10 +25,6 @@ config = {
     port: 2203,
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'index_template.ejs',
-    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     }),
@@ -73,7 +69,11 @@ config = {
   },
 };
 if (process.env.NODE_ENV === 'production') {
-  config.plugins.push();
+  config.plugins.push(new HtmlWebpackPlugin({
+        filename: 'index.html',
+        template: 'index_template.ejs',
+      })
+    );
 
   config.plugins.push(new webpack.optimize.UglifyJsPlugin({
     compress: {
@@ -93,9 +93,13 @@ if (process.env.NODE_ENV === 'production') {
       comments: false,
     },
   }));
-} /*else {
-//   config.devtools = 'evals';
-// };*/
+} else {
+  config.plugins.push(new HtmlWebpackPlugin({
+        filename: 'index.html',
+        template: 'index_template_no_sw.ejs',
+      })
+    );
+};
 
 excludedPackages = [
   'express',
