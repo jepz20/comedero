@@ -51,11 +51,14 @@ class CommentInput extends React.Component {
   render() {
     return (
       <Form>
+        <h2 className="comment-input__title">Add a Comment</h2>
+          <div className="borderline"></div>
         <FormGroup controlId="commentName">
           <ControlLabel>Name:</ControlLabel>
-          <FormControl onChange={this.setName} placeholder="Jose"/>
+          <FormControl onChange={this.setName} placeholder="Your Name"/>
         </FormGroup>
-        <FormGroup controlId="commentName">
+        <FormGroup controlId="commentContent">
+          <ControlLabel>Message:</ControlLabel>
           <FormControl
             componentClass="textarea"
             placeholder="Your Comment"

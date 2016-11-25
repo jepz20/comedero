@@ -7,7 +7,7 @@ Comedero is restaurant review application
 
 Comedero is serve using a simple express server, and uses React and redux as frameworks.
 
-Comedero is a progressive, mobile firs, app, which can serve the content offline, with focus on accessibility.
+Comedero is a progressive, mobile first app, which can serve the content offline, with focus on accessibility.
 
 ##Live Version
 Live version of the page: https://comedero-jepz.herokuapp.com

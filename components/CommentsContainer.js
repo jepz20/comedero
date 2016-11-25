@@ -15,7 +15,9 @@ class CommentsContainer extends React.Component {
 
     return (
       <div className="comments-container">
-        <CommentInput/>
+        <div className="comments-container__comment-input">
+          <CommentInput/>
+        </div>
         <div className="comments-list">
           <div className="borderline"></div>
           {
@@ -25,7 +27,6 @@ class CommentsContainer extends React.Component {
               </div>
             ))
           }
-          <div className="borderline"></div>
         </div>
       </div>
     );

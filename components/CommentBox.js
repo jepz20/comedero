@@ -14,8 +14,10 @@ class CommentBox extends React.Component {
     return (
       <div className="comment">
         <div className="comment__content">"{ comment.content }"</div>
-        <div className="comment__author">by { comment.author }</div>
-        <div className="comment__date">on { dateformat(comment.date, 'dddd mmmm dS, yyyy') }</div>
+        <div className="comment__author">By { comment.author }</div>
+        <div className="comment__date">
+          On { dateformat(comment.date, 'dddd mmmm dS, yyyy hh:MMtt') }
+        </div>
        </div>
     );
   }

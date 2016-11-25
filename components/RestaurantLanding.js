@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import CommentsContainer from './CommentsContainer.js';
+import FeatureMenu from './FeatureMenu.js';
 
 const mapStateToProps = (state) => ({
   mainView: state.mainView,
@@ -22,66 +23,73 @@ class RestaurantLanding extends React.Component {
 
   render() {
     const { fetchRestaurant, mainView } = this.props;
+    console.log(mainView.data);
+    if (!mainView.data) {
+      return (
+        <div>Loading...</div>
+      );
+    };
+
     return (
       <section className="landing">
         <div className="landing__content__main">
           <div className="landing__content__main__thumbnail">
-            <img src={ mainView.data.image}/>
+            <img alt="" src={ mainView.data.image}/>
           </div>
-          <div className="landing__content__main__info">
-            <div className="landing__content__main__info__title">
+          <div className="landing__content__main-info">
+            <div className="landing__content__main-info__title">
               <h1>{ mainView.data.name }</h1>
             </div>
-            <div className="landing__content__main__info__rating">RATING: { mainView.data.rating }</div>
-            <div className="landing__content__main__info__main-info">
-              <h2>
-                address:
-                <span>
+            <div className="landing__content__main-info__rating">
+              RATING: { mainView.data.rating }
+            </div>
+            <div className="landing__content__main-info__detail">
+              <h3>Detail </h3>
+              <div className="borderline"></div>
+              <div className="landing__content__main-info__detail__row">
+                <div className="landing__content__main-info__detail__row__title">
+                  address:
+                </div>
+                {' '}
+                <span className="landing__content__main-info__detail__row__description">
                   { `${mainView.data.address.streetAddress},
-                    ${mainView.data.address.city}, ${mainView.data.address.state},
-                    ${mainView.data.address.country}`
-                  }
-                </span>
-              </h2>
-              <h2>
-                Open Hours: <span> { mainView.data.open_hours} </span>
-              </h2>
-              <h2> Average: <span>{ mainView.data.average_price}</span> </h2>
-              <h2> Low: <span>{ mainView.data.low_price}</span> </h2>
-              <h2> High: <span>{ mainView.data.high_price}</span> </h2>
-              <h2> Categories: </h2>
-              { mainView.data.categories.map((c, index) =>
-                <div className="card__content__category" key= { index }>
-                  { c }
-                </div>)
-              }
-              <h2>
-                Open Hours: { mainView.data.open_hours}
-              </h2>
-              <h2> website: <span>{ mainView.data.website}</span> </h2>
-            </div>
-            <div className="landing__content__main__info__feature-menu">
-              <h4>Feature Menu: </h4>
-              <ul>
-                { mainView.data.featureMenu.map(menu => (
-                  <li key={menu.dish}>
-                    <div>
-                      <span className="landing__content__main__info__feature-menu__dish">{menu.dish}</span>
-                      {' '}
-                      (
-                      <span className="landing__content__main__info__feature-menu__price">${menu.price}</span>
-                      )
-                    </div>
-                    <div className="landing__content__main__info__feature-menu__description">
-                      {menu.description}
-                    </div>
-                  </li>
-                ))
+                  ${mainView.data.address.city}, ${mainView.data.address.state},
+                  ${mainView.data.address.country}`
                 }
-              </ul>
+              </span>
+              </div>
+              <div className="landing__content__main-info__detail__row">
+                <div className="landing__content__main-info__detail__row__title">
+                  Open Hours:
+                </div>
+                <span> { mainView.data.open_hours} </span>
+              </div>
+              <div className="landing__content__main-info__detail__row">
+                <div className="landing__content__main-info__detail__row__title">
+                  Price Range:
+                </div>
+                {' '}
+                <span>${ mainView.data.low_price} - ${ mainView.data.high_price}</span>
+              </div>
+
+              <div className="landing__content__main-info__detail__row">
+                <div className="landing__content__main-info__detail__row__title"> website: </div>
+                 <a href={ mainView.data.website }>{ mainView.data.website }</a>
+              </div>
+              <div className="landing__content__main-info__detail__row">
+                <div className="landing__content__main-info__detail__row__title"> Categories: </div>
+                <div className="landing__content__category__container">
+                  { mainView.data.categories.map((c, index) =>
+                    <div className="landing__content__category" key= { index }>
+                      { c }
+                    </div>)
+                  }
+                </div>
+              </div>
             </div>
           </div>
-          </div>
+        </div>
+        <FeatureMenu featureMenu= { mainView.data.featureMenu }/>
         <div className="landing__content__comments">
             <CommentsContainer comments={ mainView.data.comments } />
         </div>

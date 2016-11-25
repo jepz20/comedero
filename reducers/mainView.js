@@ -1,12 +1,6 @@
 // TODO Change for default search and data empty
 const defaultState = {
   view: 'main',
-  data: {
-    address: {},
-    categories: [],
-    featureMenu: [],
-    comments: {},
-  },
 };
 
 export default function(state=defaultState, action) {
@@ -21,7 +15,7 @@ export default function(state=defaultState, action) {
       return {
         ...state,
         data: action.response,
-      }
+      };
     default:
       return state;
   }

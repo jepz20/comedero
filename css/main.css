@@ -5,6 +5,10 @@
   width: 100%
 }
 
+.navbar a {
+  color: #2f2f2f !important;
+}
+
 /* main content */
 .content {
   overflow-x: hidden;
@@ -15,6 +19,15 @@
 .form-control-small {
   width: 50px!important;
   display: inline!important;
+}
+
+.smaller {
+  width: 40px;
+
+}
+
+.nodisplay {
+  display: none;
 }
 
 .form-group-inline {
@@ -33,10 +46,10 @@
   position: absolute;
   width: 200px;
   height: auto;
-  min-height: 800px;
   left: -200px;
   background: #e9e9e9;
   transition: 0.4s;
+  padding-bottom: 20px;
 }
 
 .left__side.show__menu{
@@ -44,6 +57,7 @@
   left: 0px;
   visibility: visible;
 }
+
 
 /* cards */
 
@@ -81,37 +95,48 @@
 .landing__content__main {
   flex-direction: column;
   display: flex;
+  justify-content: center;
 }
-.landing__content__main__info {
+.landing__content__main-info {
+  justify-content: center;
   flex: 1 100%;
 }
 .landing__content__main__thumbnail {
   flex: 1 100%;
   height: auto;
+  text-align: center;
 }
 
 .landing__content__main__thumbnail img {
   border: 2px solid #EFEFEF;
   height: auto;
-  max-height: 300px;
+  max-width: 500px;
+  max-height: 500px;
   padding: 5px;
-  width: 100%;
   margin-top: 10px;
 }
 
-.landing__content__main__info__title {
+.landing__content__main-info__title {
   font-weight: bold;
   padding-bottom: 5px;
   color: #0E7A2E;
   font-size: 2em;
 }
 
-.landing__content__main__info__title h1{
+.landing__content__main-info__title h1{
   font-size: 1.6em;
   padding-bottom: 2px;
 }
 
-.landing__content__main__info__main-info h2{
+.landing__content__main-info__detail {
+
+}
+
+.landing__content__main-info__detail__row {
+  margin-bottom: 10px;
+}
+
+.landing__content__main-info__detail h2{
   text-transform: capitalize;
   font-size: 1em;
   font-weight: bolder;
@@ -120,13 +145,27 @@
   margin-bottom: 5px;
 }
 
-.landing__content__main__info__main-info h2 span{
+.landing__content__main-info__detail h2 span{
   font-size: 1em;
   font-weight:normal;
 }
 
 .landing__content__comments {
   height: auto;
+}
+
+.comments-container {
+
+}
+
+.comments-container__comment-input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.comment-input__title {
+  color: #0E7A2E;
+  font-size: 1.9em;
+  margin-bottom: 10px;
 }
 
 .comments-list {
@@ -165,10 +204,12 @@
 .card__hero {
   position: relative;
   margin-right: 10px;
-  border: 1px solid grey;
+  border: 1px solid #EFEFEF;
   min-width: 100px;
   min-height: 200px;
-  /*max-height: 130px;*/
+  max-height: 200px;
+  max-width: 200px;
+  padding: 2px;
   width: 30%;
   height: 100%;
 }
@@ -266,19 +307,51 @@
   font-size: 0.9em;
 }
 
-.landing__content__main__info__feature-menu__dish {
+.landing__content__main-info__feature-menu__dish {
   color: #0E7A2E;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-.landing__content__main__info__feature-menu li {
+.landing__content__category__container {
+  bottom: 0;
+  right: 0;
+  display: inline-flex;
+}
+
+.landing__content__category {
+  background-color: #CC0000;
+  margin-right: 5px;
+  text-align: center;
+  padding: 3px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: .9em;
+  font-weight: bold;
+}
+
+.landing__content__main-info__detail {
+  margin-bottom: 5px;
+}
+
+.landing__content__main-info__detail__row__title {
+  text-transform: capitalize;
+  font-weight: bold;
+  display: inline;
+
+}
+
+.landing__content__main-info__feature-menu ul {
+  padding-left: 0px;
+}
+
+.landing__content__main-info__feature-menu li {
   list-style-type: none;
   margin-bottom: 10px;
   display: block;
 }
 
-.landing__content__main__info__feature-menu__description {
+.landing__content__main-info__feature-menu__description {
   font-size: 0.9em;
 }
 
@@ -300,7 +373,12 @@
 
 @media only screen and (min-width: 700px) {
 
-  .landing__content__main__info {
+  .landing__content__main {
+    flex-direction: row;
+    display: flex;
+  }
+
+  .landing__content__main-info {
     flex: 1;
   }
 
@@ -310,8 +388,9 @@
 
   .landing__content__main__thumbnail img {
     height: 300px;
-    width: 400px;
+    width: 300px;
   }
+
 
   .card__container.show__menu {
     left: auto;

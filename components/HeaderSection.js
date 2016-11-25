@@ -6,6 +6,7 @@ import NavDropdown from 'react-bootstrap/lib/NavDropdown';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import InputGroup from 'react-bootstrap/lib/InputGroup';
+import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import Button from 'react-bootstrap/lib/Button';
 import MenuItem from 'react-bootstrap/lib/MenuItem';
 import { connect } from 'react-redux';
@@ -52,7 +53,7 @@ class HeaderSection extends React.Component {
       <header>
         <Navbar>
           <Navbar.Header>
-            <Navbar.Brand>
+            <Navbar.Brand bsStyle="darker">
             <Link to="/">Comedero</Link>
             </Navbar.Brand>
             <Navbar.Toggle />
@@ -60,8 +61,10 @@ class HeaderSection extends React.Component {
           <Navbar.Form pullLeft >
           <FormGroup>
           <InputGroup>
+            <label className="nodisplay" htmlFor="searchButton">Search</label>
             <FormControl
             type="text"
+            id="searchButton"
             placeholder="Search"
             value={this.state.searchValue}
             onChange= {this.updateInputValue}
@@ -77,7 +80,7 @@ class HeaderSection extends React.Component {
           </Navbar.Form>
           <Navbar.Collapse>
             <Nav pullRight>
-            <NavItem eventKey={1} href="https://github.com/jepz20/comedero">Github</NavItem>
+            <NavItem bsStyle="noser" eventKey={1} href="https://github.com/jepz20/comedero">Github</NavItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
