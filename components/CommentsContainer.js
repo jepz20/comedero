@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentInput from './CommentInput.js';
+import CommentBox from './CommentBox.js';
 
 class CommentsContainer extends React.Component {
   constructor(props) {
@@ -13,17 +14,19 @@ class CommentsContainer extends React.Component {
     };
 
     return (
-      <div>
+      <div className="comments-container">
         <CommentInput/>
-        {
-          Object.keys(comments).map(key => (
-            <div key={ key }>
-              <div>{ comments[key].author }</div>
-              <div>{ comments[key].content }</div>
-              <div>{ (new Date(comments[key].date)).toString() }</div>
-            </div>
-          ))
-        }
+        <div className="comments-list">
+          <div className="borderline"></div>
+          {
+            Object.keys(comments).reverse().map(key => (
+              <div key={ key }>
+                <CommentBox comment={comments[key]}/>
+              </div>
+            ))
+          }
+          <div className="borderline"></div>
+        </div>
       </div>
     );
   }

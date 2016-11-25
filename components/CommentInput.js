@@ -2,6 +2,10 @@ import React from 'react';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
 import Button from 'react-bootstrap/lib/Button';
+import Form from 'react-bootstrap/lib/Form';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 
 const mapStateToProps = (state) => ({
   mainView: state.mainView,
@@ -46,17 +50,20 @@ class CommentInput extends React.Component {
 
   render() {
     return (
-      <div>
-        <label>
-          Name:
-          <input id="name" onChange={this.setName}></input>
-        </label>
-        <label>
-          Content:
-          <textarea id="content" onChange={this.setContent}></textarea>
-        </label>
+      <Form>
+        <FormGroup controlId="commentName">
+          <ControlLabel>Name:</ControlLabel>
+          <FormControl onChange={this.setName} placeholder="Jose"/>
+        </FormGroup>
+        <FormGroup controlId="commentName">
+          <FormControl
+            componentClass="textarea"
+            placeholder="Your Comment"
+            onChange={this.setContent}
+          />
+        </FormGroup>
         <Button onClick={ this.processComment } bsStyle="primary">Add Comment</Button>
-      </div>
+      </Form>
     );
   }
 }

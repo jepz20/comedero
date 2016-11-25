@@ -1,4 +1,4 @@
-html { font-family: 'Roboto', sans-serif; }
+/*html { font-family: 'Roboto', sans-serif; }*/
 
 .main {
   display: block;
@@ -71,13 +71,12 @@ html { font-family: 'Roboto', sans-serif; }
 }
 
 .landing {
-  /*height: auto;*/
   display: flex;
   width: 100%;
   flex-direction: column;
   position: absolute;
-  /*flex-wrap: wrap;*/
-  height: 3500px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .landing__content__main {
   flex-direction: column;
@@ -92,19 +91,24 @@ html { font-family: 'Roboto', sans-serif; }
 }
 
 .landing__content__main__thumbnail img {
-  height: 300px;
+  border: 2px solid #EFEFEF;
+  height: auto;
+  max-height: 300px;
+  padding: 5px;
   width: 100%;
+  margin-top: 10px;
 }
 
 .landing__content__main__info__title {
   font-weight: bold;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
+  color: #0E7A2E;
   font-size: 2em;
 }
 
 .landing__content__main__info__title h1{
   font-size: 1.6em;
+  padding-bottom: 2px;
 }
 
 .landing__content__main__info__main-info h2{
@@ -123,7 +127,39 @@ html { font-family: 'Roboto', sans-serif; }
 
 .landing__content__comments {
   height: auto;
-  background-color: cyan;
+}
+
+.comments-list {
+  margin-top: 10px;
+  height: auto;
+}
+
+.borderline {
+  border-top: 2px solid #EFEFEF;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%
+}
+
+.comment {
+  margin-bottom: 10px;
+  background-color: #EFEFEF;
+  border-radius: 10px;
+  padding: 10px;
+  padding-bottom: 15px;
+}
+
+.comment__author {
+  font-size: 0.9em;
+
+}
+
+.comment__content {
+  font-size: 1.1em;
+}
+
+.comment__date {
+  font-size: 0.9em;
 }
 
 .card__hero {
