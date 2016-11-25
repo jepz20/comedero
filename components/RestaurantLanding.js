@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import CommentsContainer from './CommentsContainer.js';
 import FeatureMenu from './FeatureMenu.js';
+import StarRatingComponent from 'react-star-rating-component';
 
 const mapStateToProps = (state) => ({
   mainView: state.mainView,
@@ -23,13 +24,17 @@ class RestaurantLanding extends React.Component {
 
   render() {
     const { fetchRestaurant, mainView } = this.props;
-    console.log(mainView.data);
     if (!mainView.data) {
       return (
         <div>Loading...</div>
       );
     };
 
+    if (!mainView.data.rateAverage) {
+      mainView.data.rateAverage = {};
+      mainView.data.rateAverage.average = 0;
+      mainView.data.rateAverage.total = 0;
+    };
     return (
       <section className="landing">
         <div className="landing__content__main">
@@ -41,7 +46,17 @@ class RestaurantLanding extends React.Component {
               <h1>{ mainView.data.name }</h1>
             </div>
             <div className="landing__content__main-info__rating">
-              RATING: { mainView.data.rating }
+              <StarRatingComponent
+                  name="rate1"
+                  starCount={ 5 }
+                  editing={ false }
+                  starColor="#CC0000"
+                  value={ Math.round(mainView.data.rateAverage.average) }
+              />
+              {' '}
+              <span>
+                ({mainView.data.rateAverage.total})
+              </span>
             </div>
             <div className="landing__content__main-info__detail">
               <h3>Detail </h3>

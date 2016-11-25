@@ -162,10 +162,15 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 .comment-input__title {
   color: #0E7A2E;
   font-size: 1.9em;
   margin-bottom: 10px;
+}
+
+.comment-input__rate {
+  font-size: 20px;
 }
 
 .comments-list {
@@ -305,6 +310,17 @@
 
 .card__content__feature-menu__description {
   font-size: 0.9em;
+}
+
+.landing__content__main-info__rating {
+  font-size: 20px;
+  background-color: white;
+}
+
+.landing__content__main-info__rating span{
+  font-size: 20px;
+  top: -10px;
+  position: relative;
 }
 
 .landing__content__main-info__feature-menu__dish {

@@ -33,5 +33,6 @@
   "name": "Baleadas Kennedy",
   "open_hours": "9:00am - 9:00pm",
   "rating": 4,
-  "website": "www.baleadaskennedy.hn"
+  "rating_count": 20,
+  "website": "https://www.baleadaskennedy.hn"
 }

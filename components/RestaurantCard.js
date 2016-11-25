@@ -20,6 +20,12 @@ class RestaurantCard extends React.Component {
       hashHistory.push('/restaurant/' + restaurant.key);
     };
 
+    if (!restaurant.rateAverage) {
+      restaurant.rateAverage = {};
+      restaurant.rateAverage.average = 0;
+      restaurant.rateAverage.total = 0;
+    };
+
     return (
       <Panel>
       <div className="card" onClick={ () => goToRestaurantLanding(restaurant) }>
@@ -33,7 +39,7 @@ class RestaurantCard extends React.Component {
               <i className="material-icons md-12">comment</i>
             </div>
             <div className="card__content__stats">
-              {restaurant.rating}
+              {Math.round(restaurant.rateAverage.average)}
               {' '}
               <i className="material-icons md-12">grade</i>
             </div>

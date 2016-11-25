@@ -80,7 +80,7 @@ class HeaderSection extends React.Component {
           </Navbar.Form>
           <Navbar.Collapse>
             <Nav pullRight>
-            <NavItem bsStyle="noser" eventKey={1} href="https://github.com/jepz20/comedero">Github</NavItem>
+            <NavItem eventKey={1} href="https://github.com/jepz20/comedero">Github</NavItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
