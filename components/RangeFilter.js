@@ -36,7 +36,9 @@ class RangeFilter extends React.Component {
 
     return (
       <div>
-        <span>{data.title}</span>
+        <div style={{fontWeight: 700, paddingBottom: '10px'}}>
+          {data.title}
+        </div>
         <Form inline>
           <FormGroup bsStyle="inline" controlId="fromRange">
             <ControlLabel>$ </ControlLabel>
@@ -62,7 +64,7 @@ class RangeFilter extends React.Component {
             />
           </FormGroup>
           {' '}
-          <Button onClick={applyFilter} bsStyle="default smaller"> >> </Button>
+          <Button onClick={applyFilter} bsStyle="default"> >> </Button>
         </Form>
       </div>
     );

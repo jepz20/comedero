@@ -21,7 +21,7 @@ const history = syncHistoryWithStore(hashHistory, store);
 
 render(
   <Provider store={ store }>
-    <Router history={ history }>
+    <Router onUpdate={() => window.scrollTo(0, 0)} history={ history }>
       <Route component={ App }>
         <Route  component= { MainSection }>
           <Route path="/restaurant/:id" component= { RestaurantLanding } />

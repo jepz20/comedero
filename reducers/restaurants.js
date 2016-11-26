@@ -42,36 +42,40 @@ export default function restaurants(state=defaultState, action) {
       if (state.searchFilter.length === 0) {
         items = action.response;
       } else {
-        items = action.response.filter(r => (
-          r.name.toLowerCase().indexOf(state.searchFilter.toLowerCase()) !== -1
-        ));
+        let possibleItems = action.response;
+        items = Object.keys(action.response).reduce((allItems, current) => {
+          let name = possibleItems[current].name.toLowerCase();
+          if (name.indexOf(state.searchFilter.toLowerCase()) !== -1) {
+            allItems[current] = possibleItems[current];
+          };
+
+          return allItems;
+        }, {});
+
       };
 
       let unMatchItems = [];
       if (Object.keys(state.filters).length > 0) {
-        items  = items.reduce((allItems, currentItem) => {
+        items  = Object.keys(items).reduce((allItems, currentItem) => {
           let isMatch = false;
           for (let key in state.filters) {
             if (key.indexOf(',') > -1) {
-              isMatch = checkMatchRange(state, key, currentItem);
+              isMatch = checkMatchRange(state, key, items[currentItem]);
             } else {
-              isMatch = checkMatch(state, key, currentItem);
+              isMatch = checkMatch(state, key, items[currentItem]);
             }
 
-            let index = allItems.indexOf(currentItem);
             if (isMatch) {
-              if (index === -1) {
-                allItems.push(currentItem);
+              if (!allItems[currentItem]) {
+                allItems[currentItem] = items[currentItem];
               }
             } else {
-              if (index > -1) {
-                allItems.splice(index, 1);
-              }
+              delete allItems[currentItem];
             };
           };
 
           return allItems;
-        }, []);
+        }, {});
       };
 
       return { ...state, items, loading: false };
@@ -104,7 +108,7 @@ export default function restaurants(state=defaultState, action) {
       return { ...state, filters };
     case 'CLEAR_ALL_FILTERS':
       return { ...state, filters: {} };
-      
+
     case 'APPLY_SEARCH':
       return { ...state, searchFilter: action.searchFilter };
     default:

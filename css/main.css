@@ -17,13 +17,8 @@
 }
 
 .form-control-small {
-  width: 50px!important;
+  width: 48px!important;
   display: inline!important;
-}
-
-.smaller {
-  width: 40px;
-
 }
 
 .nodisplay {

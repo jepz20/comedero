@@ -17,12 +17,16 @@ class LeftSideSection extends React.Component {
     const { visibilityMenu } = this.props;
     let cousineFilter = {};
     cousineFilter.title = 'Cousine';
-    cousineFilter.items = ['Tipica', 'Catracho', 'Capitalino'];
+    cousineFilter.items = [
+      'Italian', 'Gourmet', 'Catracho',
+      'Cypriot', 'Typical',
+      'Baleada', 'Hamburger',
+    ];
     cousineFilter.property = 'categories';
 
     let cityFilter = {};
     cityFilter.title = 'City';
-    cityFilter.items = ['Tegucigalpa', 'Egkomi', 'Ceiba'];
+    cityFilter.items = ['Tegucigalpa', 'San Pedro Sula', 'Ceiba'];
     cityFilter.property = 'address.city';
 
     let priceFilter = {};

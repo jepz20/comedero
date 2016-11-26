@@ -27,9 +27,9 @@ class RestaurantCardsContainer extends React.Component {
 
     return (
        <div>
-       { restaurants.items.map(r => (
-           <div key={r.name}>
-            <RestaurantCard restaurant={r}/>
+       { Object.keys(restaurants.items).map(r => (
+           <div key={restaurants.items[r].name}>
+            <RestaurantCard restaurant={restaurants.items[r]}/>
            </div>
          ))
       }
