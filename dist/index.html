@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <title>Comedero</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js').then((r) => {
+          console.log('Service Worker Registered');
+        });
+      }
+    </script>
+  <script type="text/javascript" src="manifest.79e3b3859be369c0bda6.js"></script><script type="text/javascript" src="vendor.72f66e291fb662ce382d.js"></script><script type="text/javascript" src="app.3ca41f7c7c27bc53e810.js"></script></body>
+</html>
