@@ -5,45 +5,6 @@ main {
   width: 100%
 }
 
-
-/*Star Rating CSS*/
-.rating {
-    unicode-bidi: bidi-override;
-    direction: rtl;
-    width: 8em;
-}
-
-.rating input {
-    position: absolute;
-    left: -999999px;
-}
-
-.rating label {
-    display: inline-block;
-    font-size: 0;
-}
-
-.rating > label:before {
-    position: relative;
-    font: 24px/1 FontAwesome;
-    display: block;
-    content: "\f005";
-    color: #ccc;
-    background: -webkit-linear-gradient(-45deg, #d9d9d9 0%, #b3b3b3 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.rating > label:hover:before,
-.rating > label:hover ~ label:before,
-.rating > label.selected:before,
-.rating > label.selected ~ label:before {
-    color: #f0ad4e;
-    background: -webkit-linear-gradient(-45deg, #fcb551 0%, #d69a45 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 .header__app-title {
   font-size: 1em;
   padding: 0px;
@@ -126,19 +87,19 @@ main {
 
 .landing {
   display: flex;
-  width: 100%;
+  width: auto;
   flex-direction: column;
-  position: absolute;
+  position: relative;
   padding-left: 10px;
   padding-right: 10px;
 }
+
 .landing__content__main {
   flex-direction: column;
   display: flex;
-  justify-content: center;
 }
+
 .landing__content__main-info {
-  justify-content: center;
   flex: 1 100%;
 }
 .landing__content__main__thumbnail {
@@ -148,11 +109,10 @@ main {
 
 .landing__content__main__thumbnail img {
   border: 2px solid #EFEFEF;
-  /*height: auto;*/
-  width: 70vmin;
-  height: 70vmin;
-  /*max-width: 500px;
-  max-height: 500px;*/
+  width: 60vmax;
+  height: 60vmax;
+  max-width: 400px;
+  max-height: 400px;
   padding: 5px;
   margin-top: 10px;
 }
@@ -251,8 +211,6 @@ main {
   position: relative;
   margin-right: 10px;
   border: 1px solid #EFEFEF;
-  width: 30vmin;
-  height: 30vmin;
   padding: 2px;
   display: none;
 }
@@ -425,8 +383,8 @@ main {
   }
 
   .card__hero {
-    width: 17vmin;
-    height: 17vmin;
+    width: 17vmax;
+    height: 17vmax;
     display: inline;
   }
 }
@@ -447,12 +405,15 @@ main {
   }
 
   .landing__content__main__thumbnail {
-    flex: 1;
+    flex: 0;
+    margin-right: 10px;
   }
 
   .landing__content__main__thumbnail img {
-    height: 50vmin;
-    width: 50vmin;
+    height: 30vmax;
+    width: 30vmax;
+    max-width: 300px;
+    max-height: 300px;
   }
 
 
@@ -482,6 +443,13 @@ main {
   .md-700 {
     display: none;
   }
+
+  .card__hero {
+    width: 15vmax;
+    height: 15vmax;
+    display: inline;
+  }
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -498,6 +466,13 @@ main {
     margin-right: auto;
     width: 940px;
   }
+
+  .card__hero {
+    width: 13vmax;
+    height: 13vmax;
+    display: inline;
+  }
+
 }
 
 @media only screen and (min-width: 1200px) {
