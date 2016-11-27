@@ -24,26 +24,28 @@ class RestaurantLanding extends React.Component {
 
   render() {
     const { fetchRestaurant, mainView } = this.props;
+    const { data } = mainView;
     if (!mainView.data) {
       return (
         <div>Loading...</div>
       );
     };
 
-    if (!mainView.data.rateAverage) {
-      mainView.data.rateAverage = {};
-      mainView.data.rateAverage.average = 0;
-      mainView.data.rateAverage.total = 0;
+    if (!data.rateAverage) {
+      data.rateAverage = {};
+      data.rateAverage.average = 0;
+      data.rateAverage.total = 0;
     };
+
     return (
       <section className="landing">
         <div className="landing__content__main">
           <div className="landing__content__main__thumbnail">
-            <img alt="" src={ mainView.data.image}/>
+            <img alt={ data.image_description } src={ data.image }/>
           </div>
           <div className="landing__content__main-info">
             <div className="landing__content__main-info__title">
-              <h1>{ mainView.data.name }</h1>
+              <h1>{ data.name }</h1>
             </div>
             <div className="landing__content__main-info__rating">
               <StarRatingComponent
@@ -51,11 +53,11 @@ class RestaurantLanding extends React.Component {
                   starCount={ 5 }
                   editing={ false }
                   starColor="#CC0000"
-                  value={ Math.round(mainView.data.rateAverage.average) }
+                  value={ Math.round(data.rateAverage.average) }
               />
               {' '}
               <span>
-                ({mainView.data.rateAverage.total})
+                ({data.rateAverage.total})
               </span>
             </div>
             <div className="landing__content__main-info__detail">
@@ -67,9 +69,9 @@ class RestaurantLanding extends React.Component {
                 </div>
                 {' '}
                 <span className="landing__content__main-info__detail__row__description">
-                  { `${mainView.data.address.streetAddress},
-                  ${mainView.data.address.city}, ${mainView.data.address.state},
-                  ${mainView.data.address.country}`
+                  { `${data.address.streetAddress},
+                  ${data.address.city}, ${data.address.state},
+                  ${data.address.country}`
                 }
               </span>
               </div>
@@ -77,24 +79,24 @@ class RestaurantLanding extends React.Component {
                 <div className="landing__content__main-info__detail__row__title">
                   Open Hours:
                 </div>
-                <span> { mainView.data.open_hours} </span>
+                <span> { data.open_hours} </span>
               </div>
               <div className="landing__content__main-info__detail__row">
                 <div className="landing__content__main-info__detail__row__title">
                   Price Range:
                 </div>
                 {' '}
-                <span>${ mainView.data.low_price} - ${ mainView.data.high_price}</span>
+                <span>${ data.low_price} - ${ data.high_price}</span>
               </div>
 
               <div className="landing__content__main-info__detail__row">
                 <div className="landing__content__main-info__detail__row__title"> website: </div>
-                 <a href={ mainView.data.website }>{ mainView.data.website }</a>
+                 <a href={ data.website }>{ data.website }</a>
               </div>
               <div className="landing__content__main-info__detail__row">
                 <div className="landing__content__main-info__detail__row__title"> Categories: </div>
                 <div className="landing__content__category__container">
-                  { mainView.data.categories.map((c, index) =>
+                  { data.categories.map((c, index) =>
                     <div className="landing__content__category" key= { index }>
                       { c }
                     </div>)
@@ -104,9 +106,9 @@ class RestaurantLanding extends React.Component {
             </div>
           </div>
         </div>
-        <FeatureMenu featureMenu= { mainView.data.featureMenu }/>
+        <FeatureMenu featureMenu= { data.featureMenu }/>
         <div className="landing__content__comments">
-            <CommentsContainer comments={ mainView.data.comments } />
+            <CommentsContainer comments={ data.comments } />
         </div>
       </section>
     );

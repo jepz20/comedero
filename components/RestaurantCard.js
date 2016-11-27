@@ -29,7 +29,7 @@ class RestaurantCard extends React.Component {
     return (
       <Panel>
       <div className="card" onClick={ () => goToRestaurantLanding(restaurant) }>
-        <img alt="" src={restaurant.image} className="card__hero"></img>
+        <img alt={restaurant.image_description} src={restaurant.image} className="card__hero"></img>
         <div className="card__content">
           <h1>{restaurant.name}</h1>
           <div className="card__content__stats_container">
