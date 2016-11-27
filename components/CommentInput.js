@@ -7,6 +7,7 @@ import FormGroup from 'react-bootstrap/lib/FormGroup';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import StarRatingComponent from 'react-star-rating-component';
+import StarRatingAccessible from './StarRatingAccessible';
 
 const mapStateToProps = (state) => ({
   mainView: state.mainView,

@@ -40,7 +40,7 @@ class RestaurantCard extends React.Component {
         onClick={ goToRestaurantLanding } onKeyPress={ handleEnter }>
         <img alt={restaurant.image_description} src={restaurant.image} className="card__hero"></img>
         <div className="card__content">
-          <h1>{restaurant.name}</h1>
+          <h2>{restaurant.name}</h2>
           <div className="card__content__stats_container">
             <div className="card__content__stats">
               {restaurant.commentsCount}

@@ -54,7 +54,7 @@ class HeaderSection extends React.Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand bsStyle="darker">
-            <Link to="/">Comedero</Link>
+            <Link to="/"><h1 className="header__app-title">Comedero</h1></Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>

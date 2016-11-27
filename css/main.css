@@ -1,8 +1,53 @@
 /*html { font-family: 'Roboto', sans-serif; }*/
 
-.main {
+main {
   display: block;
   width: 100%
+}
+
+
+/*Star Rating CSS*/
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    width: 8em;
+}
+
+.rating input {
+    position: absolute;
+    left: -999999px;
+}
+
+.rating label {
+    display: inline-block;
+    font-size: 0;
+}
+
+.rating > label:before {
+    position: relative;
+    font: 24px/1 FontAwesome;
+    display: block;
+    content: "\f005";
+    color: #ccc;
+    background: -webkit-linear-gradient(-45deg, #d9d9d9 0%, #b3b3b3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > label.selected:before,
+.rating > label.selected ~ label:before {
+    color: #f0ad4e;
+    background: -webkit-linear-gradient(-45deg, #fcb551 0%, #d69a45 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header__app-title {
+  font-size: 1em;
+  padding: 0px;
+  margin: 0px;
 }
 
 .navbar a {
@@ -104,8 +149,8 @@
 .landing__content__main__thumbnail img {
   border: 2px solid #EFEFEF;
   /*height: auto;*/
-  width: 100vmin;
-  height: 100vmin;
+  width: 70vmin;
+  height: 70vmin;
   /*max-width: 500px;
   max-height: 500px;*/
   padding: 5px;
@@ -119,7 +164,7 @@
   font-size: 2em;
 }
 
-.landing__content__main-info__title h1{
+.landing__content__main-info__title h2{
   font-size: 1.6em;
   padding-bottom: 2px;
 }
@@ -219,7 +264,7 @@
   margin-bottom:30px;
 }
 
-.card__content h1 {
+.card__content h2 {
   font-size: 1.3em;
   padding: 0;
   margin-top: 0;
@@ -380,8 +425,8 @@
   }
 
   .card__hero {
-    width: 30vmin;
-    height: 30vmin;
+    width: 17vmin;
+    height: 17vmin;
     display: inline;
   }
 }
@@ -406,8 +451,8 @@
   }
 
   .landing__content__main__thumbnail img {
-    height: 80vmin;
-    width: 80vmin;
+    height: 50vmin;
+    width: 50vmin;
   }
 
 
@@ -440,7 +485,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .main {
+  main {
     margin-left: auto;
     margin-right: auto;
     width: 720px;
@@ -448,7 +493,7 @@
 }
 
 @media only screen and (min-width: 991px) {
-  .main {
+  main {
     margin-left: auto;
     margin-right: auto;
     width: 940px;
@@ -456,7 +501,7 @@
 }
 
 @media only screen and (min-width: 1200px) {
-  .main {
+  main {
     margin-left: auto;
     margin-right: auto;
     width: 1140px;

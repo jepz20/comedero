@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import CommentsContainer from './CommentsContainer.js';
 import FeatureMenu from './FeatureMenu.js';
-import StarRatingComponent from 'react-star-rating-component';
+import StarRatingComponent from './StarRatingAccessible';
 
 const mapStateToProps = (state) => ({
   mainView: state.mainView,
@@ -45,7 +45,7 @@ class RestaurantLanding extends React.Component {
           </div>
           <div className="landing__content__main-info">
             <div className="landing__content__main-info__title">
-              <h1>{ data.name }</h1>
+              <h2>{ data.name }</h2>
             </div>
             <div className="landing__content__main-info__rating">
               <StarRatingComponent

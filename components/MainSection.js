@@ -16,9 +16,9 @@ class MainSection extends React.Component {
 
   render() {
     return (
-      <section className="main">
+      <main>
         {this.props.children}
-      </section>
+      </main>
     );
   }
 };
