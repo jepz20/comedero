@@ -15,9 +15,15 @@ class RestaurantCard extends React.Component {
 
   render() {
     const { restaurant, setMainView } = this.props;
-    const goToRestaurantLanding = (restaurant) => {
+    const goToRestaurantLanding = () => {
       setMainView('restaurantLanding', restaurant);
       hashHistory.push('/restaurant/' + restaurant.key);
+    };
+
+    const handleEnter = evt => {
+      if (evt.key === 'Enter') {
+        goToRestaurantLanding();
+      }
     };
 
     if (!restaurant.rateAverage) {
@@ -28,7 +34,10 @@ class RestaurantCard extends React.Component {
 
     return (
       <Panel>
-      <div className="card" onClick={ () => goToRestaurantLanding(restaurant) }>
+      <div
+        tabIndex="0"
+        className="card"
+        onClick={ goToRestaurantLanding } onKeyPress={ handleEnter }>
         <img alt={restaurant.image_description} src={restaurant.image} className="card__hero"></img>
         <div className="card__content">
           <h1>{restaurant.name}</h1>
