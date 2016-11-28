@@ -109,10 +109,8 @@ main {
 
 .landing__content__main__thumbnail img {
   border: 2px solid #EFEFEF;
-  width: 30vmax;
-  height: 30vmax;
-  max-width: 100%;
-  /*max-height: auto;*/
+  width: 100%;
+  height: auto;
   padding: 5px;
   margin-top: 10px;
 }
@@ -388,10 +386,6 @@ main {
     height: 12vmax;
   }
 
-  .landing__content__main__thumbnail img {
-    height: 50vmax;
-    width: 50vmax;
-  }
 }
 
 @media only screen and (min-width: 500px) {
@@ -404,6 +398,11 @@ main {
     width: 16vmax;
     height: 16vmax;
     display: inline;
+  }
+  
+  .landing__content__main__thumbnail img {
+    height: 50vmax;
+    width: 50vmax;
   }
 }
 
