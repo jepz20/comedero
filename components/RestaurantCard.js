@@ -37,6 +37,7 @@ class RestaurantCard extends React.Component {
       <div
         tabIndex="0"
         className="card"
+        role="link"
         onClick={ goToRestaurantLanding } onKeyPress={ handleEnter }>
         <img alt={restaurant.image_description} src={restaurant.image} className="card__hero"></img>
         <div className="card__content">
