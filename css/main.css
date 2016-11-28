@@ -1,4 +1,4 @@
-/*html { font-family: 'Roboto', sans-serif; }*/
+html { font-family: 'Roboto', sans-serif; }
 
 main {
   display: block;
@@ -109,10 +109,10 @@ main {
 
 .landing__content__main__thumbnail img {
   border: 2px solid #EFEFEF;
-  width: 60vmax;
-  height: 60vmax;
-  max-width: 400px;
-  max-height: 400px;
+  width: 30vmax;
+  height: 30vmax;
+  max-width: 100%;
+  /*max-height: auto;*/
   padding: 5px;
   margin-top: 10px;
 }
@@ -212,7 +212,8 @@ main {
   margin-right: 10px;
   border: 1px solid #EFEFEF;
   padding: 2px;
-  display: none;
+  width: 12vmax;
+  height: 12vmax;
 }
 
 .card__content {
@@ -376,6 +377,23 @@ main {
   font-size: 12px;
 }
 
+@media only screen and (min-width: 300px) {
+
+  .card__hero {
+    position: relative;
+    margin-right: 10px;
+    border: 1px solid #EFEFEF;
+    padding: 2px;
+    width: 12vmax;
+    height: 12vmax;
+  }
+
+  .landing__content__main__thumbnail img {
+    height: 50vmax;
+    width: 50vmax;
+  }
+}
+
 @media only screen and (min-width: 500px) {
 
   .sm-500{
@@ -383,8 +401,8 @@ main {
   }
 
   .card__hero {
-    width: 17vmax;
-    height: 17vmax;
+    width: 16vmax;
+    height: 16vmax;
     display: inline;
   }
 }
@@ -447,7 +465,6 @@ main {
   .card__hero {
     width: 15vmax;
     height: 15vmax;
-    display: inline;
   }
 
 }
